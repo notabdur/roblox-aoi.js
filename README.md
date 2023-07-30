@@ -1,99 +1,203 @@
-# roblox-aoi.js
-A perfect package for Roblox bot!
+Creating comprehensive documentation involves various components, including usage examples, function descriptions, and explanations. Below is an example of how you can structure the documentation for your Roblox npm package to upload on GitHub:
 
-npm install
-```js
-npm i roblox-aoi.js
+---
+
+# Your Roblox NPM Package
+
+![npm version](https://img.shields.io/npm/v/roblox-aoi.js)
+![license](https://img.shields.io/npm/l/roblox-aoi.js)
+![npm downloads](https://img.shields.io/npm/dm/roblox-aoi.js)
+
+Welcome to the documentation for the "Your Roblox NPM Package." This package provides a set of functions to interact with the Roblox API and perform various operations related to groups, games, users, and assets.
+
+## Installation
+
+```bash
+npm install roblox-aoi.js
 ```
 
 ## Usage
-```js
-const {
-  greetUser,
-  getUserInfo,
-  getUserFriends,
-  getGroupInfo,
-  promoteUser,
-  demoteUser,
-  exileUser,
-  payRobux,
-  getGameInfo,
-  getGameBadgesInfo,
-  getUserInfoById,
-  getUserBadges,
-  getUserAssets,
-  getAllAssetsInfo,
-} = require('roblox-aoi.js');
 
-// Example usage
-const username = 'Robloxusername';
-const targetUsername = 'targetusername';
-const groupId = 123456; // Replace with your group ID
-const gameId = 789012; // Replace with your game ID
-const targetUserId = USER_ID; // Replace with your target user ID
-const assetIds = [123, 456, 789]; // Replace with the asset IDs you want to fetch information for
+To use the functions provided by this package, require it in your Node.js project:
+
+```javascript
+const robloxPackage = require('roblox-aoi.js');
+```
+
+## Functions
+
+### `greetUser(username)`
+
+A simple function to greet the user with their username.
+
+**Parameters:**
+- `username` (string): The username of the user.
+
+**Returns:**
+- (string): A greeting message.
+
+### `getUserInfo(username)`
+
+Get information about a user using their username.
+
+**Parameters:**
+- `username` (string): The username of the user.
+
+**Returns:**
+- (object): An object containing user information.
+
+### `getUserFriends(userId)`
+
+Get a user's friends.
+
+**Parameters:**
+- `userId` (number): The user ID of the user.
+
+**Returns:**
+- (array): An array of user friends.
+
+### `getGroupInfo(groupId)`
+
+Get information about a group using its ID.
+
+**Parameters:**
+- `groupId` (number): The ID of the group.
+
+**Returns:**
+- (object): An object containing group information.
+
+### `promoteUser(groupId, targetUserId)`
+
+Promote a user in a group.
+
+**Parameters:**
+- `groupId` (number): The ID of the group.
+- `targetUserId` (number): The user ID of the user to be promoted.
+
+**Returns:**
+- (object): An object confirming the promotion.
+
+### `demoteUser(groupId, targetUserId)`
+
+Demote a user in a group.
+
+**Parameters:**
+- `groupId` (number): The ID of the group.
+- `targetUserId` (number): The user ID of the user to be demoted.
+
+**Returns:**
+- (object): An object confirming the demotion.
+
+### `exileUser(groupId, targetUserId)`
+
+Exile a user from a group.
+
+**Parameters:**
+- `groupId` (number): The ID of the group.
+- `targetUserId` (number): The user ID of the user to be exiled.
+
+**Returns:**
+- (object): An object confirming the exile.
+
+### `payRobux(targetUserId, amount)`
+
+Pay robux to a user from the authenticated user's balance.
+
+**Parameters:**
+- `targetUserId` (number): The user ID of the user to receive robux.
+- `amount` (number): The amount of robux to be paid.
+
+**Returns:**
+- (object): An object confirming the payment.
+
+### `getGameInfo(gameId)`
+
+Get game information by its ID.
+
+**Parameters:**
+- `gameId` (number): The ID of the game.
+
+**Returns:**
+- (object): An object containing game information.
+
+### `getGameBadgesInfo(gameId)`
+
+Get game badges information by game ID.
+
+**Parameters:**
+- `gameId` (number): The ID of the game.
+
+**Returns:**
+- (array): An array of game badges information.
+
+### `getUserInfoById(userId)`
+
+Get user information by their user ID.
+
+**Parameters:**
+- `userId` (number): The ID of the user.
+
+**Returns:**
+- (object): An object containing user information.
+
+### `getUserBadges(userId)`
+
+Get user badges information by their user ID.
+
+**Parameters:**
+- `userId` (number): The ID of the user.
+
+**Returns:**
+- (array): An array of user badges information.
+
+### `getUserAssets(userId)`
+
+Get user assets by their user ID.
+
+**Parameters:**
+- `userId` (number): The ID of the user.
+
+**Returns:**
+- (array): An array of user assets information.
+
+### `getAllAssetsInfo(assetIds)`
+
+Get all assets information by asset IDs.
+
+**Parameters:**
+- `assetIds` (array): An array of asset IDs.
+
+**Returns:**
+- (array): An array of assets information.
+
+## Examples
+
+```javascript
+const { greetUser, getUserInfo, promoteUser, payRobux } = require('roblox-aoi.js');
+
+const username = 'RobloxUser123';
+console.log(greetUser(username));
 
 (async () => {
   try {
-    // Greet the user
-    console.log(greetUser(username));
-
-    // Get user info
     const userInfo = await getUserInfo(username);
     console.log(userInfo);
 
-    // Get user friends
-    const userFriends = await getUserFriends(userInfo.Id);
-    console.log(userFriends);
+    const groupId = 123456; // Replace with your group ID
+    const targetUserId = 7890123; // Replace with your target user ID
 
-    // Get group info
-    const groupInfo = await getGroupInfo(groupId);
-    console.log(groupInfo);
-
-    // Promote user in the group
     await promoteUser(groupId, targetUserId);
     console.log(`${targetUserId} promoted successfully.`);
 
-    // Demote user in the group
-    await demoteUser(groupId, targetUserId);
-    console.log(`${targetUserId} demoted successfully.`);
-
-    // Exile user from the group
-    await exileUser(groupId, targetUserId);
-    console.log(`${targetUserId} exiled successfully.`);
-
-    // Pay robux to a user
     const robuxAmount = 100;
     await payRobux(targetUserId, robuxAmount);
     console.log(`${robuxAmount} robux paid successfully to user with ID ${targetUserId}.`);
-
-    // Get game information
-    const gameInfo = await getGameInfo(gameId);
-    console.log(gameInfo);
-
-    // Get game badges information
-    const gameBadgesInfo = await getGameBadgesInfo(gameId);
-    console.log(gameBadgesInfo);
-
-    // Get user information by ID
-    const userInfoById = await getUserInfoById(targetUserId);
-    console.log(userInfoById);
-
-    // Get user badges information
-    const userBadges = await getUserBadges(targetUserId);
-    console.log(userBadges);
-
-    // Get user assets information
-    const userAssets = await getUserAssets(targetUserId);
-    console.log(userAssets);
-
-    // Get all assets information
-    const allAssetsInfo = await getAllAssetsInfo(assetIds);
-    console.log(allAssetsInfo);
   } catch (error) {
     console.error(error.message);
   }
 })();
-
-
 ```
+
+## License
+
+MIT License. See the [LICENSE](LICENSE) file for more details.
