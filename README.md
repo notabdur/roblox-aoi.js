@@ -4,7 +4,7 @@
 ![license](https://img.shields.io/npm/l/roblox-aoi.js)
 ![npm downloads](https://img.shields.io/npm/dm/roblox-aoi.js)
 
-Welcome to the documentation for the "Your Roblox NPM Package." This package provides a set of functions to interact with the Roblox API and perform various operations related to groups, games, users, and assets.
+Welcome to the documentation for the "roblox-aoi.js." This package provides a set of functions to interact with the Roblox API and perform various operations related to groups, games, users, and assets.
 
 ## Installation
 
