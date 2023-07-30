@@ -1,12 +1,13 @@
 # roblox-aoi.js
+A perfect package for Roblox bot!
 
 npm install
-```
+```js
 npm i roblox-aoi.js
 ```
 
 ## Usage
-```
+```js
 const {
   greetUser,
   getUserInfo,
