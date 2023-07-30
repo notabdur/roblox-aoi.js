@@ -1,8 +1,4 @@
-Creating comprehensive documentation involves various components, including usage examples, function descriptions, and explanations. Below is an example of how you can structure the documentation for your Roblox npm package to upload on GitHub:
-
----
-
-# Your Roblox NPM Package
+# Roblox NPM Package
 
 ![npm version](https://img.shields.io/npm/v/roblox-aoi.js)
 ![license](https://img.shields.io/npm/l/roblox-aoi.js)
